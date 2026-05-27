@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdullah Almutawakel - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & Base ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      line-height: 1.7;
+      padding: 30px 20px;
+      min-height: 100vh;
+    }
+
+    /* ===== Layout ===== */
+    .cv-wrapper {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 25px;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      background: #1e293b;
+      border-radius: 20px;
+      padding: 30px;
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Profile */
+    .profile {
+      text-align: center;
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 25px;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    .profile h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #f1f5f9;
+      margin-bottom: 6px;
+    }
+
+    .profile .title {
+      font-size: 13px;
+      color: #8b5cf6;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #8b5cf6;
+      margin-bottom: 15px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+    }
+
+    .contact-item span:first-child {
+      color: #8b5cf6;
+      font-size: 16px;
+    }
+
+    .language-item,
+    .skill-item {
+      font-size: 14px;
+      color: #cbd5e1;
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .language-item::before,
+    .skill-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #8b5cf6;
+      font-weight: bold;
+    }
+
+    /* ===== Main Content ===== */
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(59,130,246,0.1));
+      border: 1px solid rgba(139,92,246,0.4);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: #f1f5f9;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* Cards */
+    .card {
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 28px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      border-color: rgba(139,92,246,0.4);
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #f1f5f9;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .card p {
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .card p strong {
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card li {
+      color: #cbd5e1;
+      font-size: 15px;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .card li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #8b5cf6;
+    }
+
+    /* Badges */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: rgba(139,92,246,0.15);
+      border: 1px solid rgba(139,92,246,0.4);
+      font-size: 13px;
+      color: #c4b5fd;
+      font-weight: 500;
+    }
+
+    .badge.green {
+      background: rgba(34,182,94,0.15);
+      border-color: rgba(34,182,94,0.4);
+      color: #86efac;
+    }
+
+    .badge.blue {
+      background: rgba(59,130,246,0.15);
+      border-color: rgba(59,130,246,0.4);
+      color: #93c5fd;
+    }
+
+    /* Availability Banner */
+    .availability {
+      background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(139,92,246,0.1));
+      border: 1px solid rgba(139,92,246,0.5);
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #c4b5fd;
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .cv-wrapper { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+
+    @media (max-width: 500px) {
+      .hero h2 { font-size: 22px; }
+      .card { padding: 24px 20px; }
+      .profile h1 { font-size: 20px; }
+      .avatar { width: 90px; height: 90px; font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cv-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    
+    <!-- Profile -->
+    <div class="profile">
+      <div class="avatar">AA</div>
+      <h1>Abdullah Almutawakel</h1>
+      <p class="title">Technical Professional | Open to Opportunities</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="section">
+      <h2>Contact</h2>
+      <div class="contact-item"><span>📍</span> Bergen op Zoom, Netherlands</div>
+      <div class="contact-item"><span>📧</span> aboud.aboud2012@gmail.com</div>
+      <div class="contact-item"><span>📱</span> +31 685 435 688</div>
+    </div>
+
+    <!-- Languages -->
+    <div class="section">
+      <h2>Languages</h2>
+      <div class="language-item">Arabic — Native</div>
+      <div class="language-item">English — Good</div>
+      <div class="language-item">Dutch — B1/B2 (Actively improving)</div>
+    </div>
+
+    <!-- Safety & Certifications -->
+    <div class="section">
+      <h2>Safety & Certifications</h2>
+      <div class="skill-item">✅ VCA Certified (Safety Checklist Contractors)</div>
+      <div class="skill-item">✅ Industrial HSE Awareness</div>
+      <div class="skill-item">✅ Safety-First Work Approach</div>
+    </div>
+
+    <!-- Core Competencies -->
+    <div class="section">
+      <h2>Core Competencies</h2>
+      <div class="skill-item">Systematic Troubleshooting</div>
+      <div class="skill-item">Technical Problem Solving</div>
+      <div class="skill-item">System Monitoring & Support</div>
+      <div class="skill-item">Root-Cause Analysis</div>
+      <div class="skill-item">Technical Documentation</div>
+      <div class="skill-item">Team Collaboration</div>
+      <div class="skill-item">Adaptability & Quick Learning</div>
+    </div>
+
+    <!-- Availability -->
+    <div class="availability">
+      🔓 Open to various technical roles<br>
+      🔄 Flexible with shift schedules & locations
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- Professional Profile -->
+    <section class="hero">
+      <h2>Professional Profile</h2>
+      <p>
+        VCA-certified technical professional with PhD-level analytical expertise and industrial experience. Skilled in troubleshooting complex systems, ensuring operational reliability, and maintaining safety compliance in demanding environments. Adaptable and eager to contribute technical knowledge and problem-solving abilities to diverse roles in technical support, infrastructure, maintenance, or operations.
+      </p>
+    </section>
+
+    <!-- What I Bring -->
+    <section class="card">
+      <h3>What I Bring to Your Team</h3>
+      <ul>
+        <li><strong>Analytical Problem-Solving:</strong> PhD-trained ability to break down complex issues, identify root causes, and implement effective solutions under pressure.</li>
+        <li><strong>Safety-Conscious Approach:</strong> VCA certified with practical understanding of HSE protocols and risk-aware work practices in industrial settings.</li>
+        <li><strong>Technical Versatility:</strong> Experience with monitoring, maintaining, and supporting critical systems; quick to learn new tools, processes, or technologies.</li>
+        <li><strong>Reliability & Commitment:</strong> Proven track record of supporting continuous operations and collaborating effectively within technical teams.</li>
+        <li><strong>Open & Adaptable Mindset:</strong> Motivated to grow, learn, and contribute across different technical domains and operational contexts.</li>
+      </ul>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="card">
+      <h3>Professional Experience</h3>
+      <p><strong>IT / Cloud Engineer</strong> | Yemen Company for Investment in Oil and Minerals (2013–Present)</p>
+      <ul>
+        <li>Monitored and maintained critical technical infrastructure supporting continuous industrial operations.</li>
+        <li>Performed systematic troubleshooting and incident resolution to ensure system availability and minimize downtime.</li>
+        <li>Applied structured procedures and documentation practices aligned with operational and safety standards.</li>
+        <li>Collaborated with cross-functional teams to support system stability and operational continuity.</li>
+        <li>Developed strong situational awareness and decision-making skills in time-sensitive, high-stakes environments.</li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section class="card">
+      <h3>Education</h3>
+      <p>
+        <strong>PhD in Computer Engineering</strong><br>
+        Mohamed Khider University, Algeria<br>
+        <em>Focus: Distributed Systems, Infrastructure Optimization, Reliability Engineering</em>
+      </p>
+      <p style="margin-top:12px; font-size:14px;">
+        <strong>Transferable Strengths:</strong><br>
+        • Structured problem-solving & analytical thinking<br>
+        • System design & process optimization mindset<br>
+        • Technical documentation & procedural discipline<br>
+        • Complex system analysis & performance monitoring
+      </p>
+    </section>
+
+    <!-- Skills Overview -->
+    <section class="card">
+      <h3>Skills Overview</h3>
+      <div class="badges">
+        <span class="badge green">VCA Certified</span>
+        <span class="badge">Troubleshooting</span>
+        <span class="badge">System Support</span>
+        <span class="badge">Incident Response</span>
+        <span class="badge">Safety Awareness</span>
+        <span class="badge blue">Analytical Thinking</span>
+        <span class="badge blue">Team Collaboration</span>
+        <span class="badge blue">Adaptability</span>
+        <span class="badge blue">Quick Learner</span>
+        <span class="badge blue">Shift Flexibility</span>
+      </div>
+    </section>
+
+    <!-- Career Motivation -->
+    <section class="card">
+      <h3>Career Motivation</h3>
+      <p>
+        I am a technically-minded professional seeking opportunities where I can apply my analytical skills, safety awareness, and hands-on problem-solving abilities. I am open to roles in technical support, infrastructure operations, maintenance, or related fields where reliability, teamwork, and continuous improvement are valued.
+      </p>
+      <p style="margin-top:12px;">
+        I bring a strong work ethic, a commitment to learning, and the flexibility to adapt to different schedules, locations, and technical challenges. I am ready to contribute from day one while growing my expertise within your organization.
+      </p>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>
